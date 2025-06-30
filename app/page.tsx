@@ -1,11 +1,13 @@
+// app/page.tsx
+
 'use client'; // Necessário para usar hooks como useState
 
 import React, { useState } from 'react';
-import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import InstagramFeed from '@/components/InstagramFeed';
-import InvitationSection from '@/components/InvitationSection';
-import ThankYouPage from '@/components/ThankYouPage';
+// Caminhos de importação corrigidos
+import HeroSection from '@/app/components/HeroSection';
+import InvitationSection from '@/app/components/InvitationSection';
+import ThankYouPage from '@/app/components/ThankYouPage';
+import InstagramSection from '@/app/components/InstagramSection';
 
 export default function Home() {
   const [showThankYou, setShowThankYou] = useState(false);
@@ -38,8 +40,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <AboutSection photos={photos} />
-      <InstagramFeed photos={photos} comments={comments} />
+
       <InvitationSection onAccept={handleAccept} />
     </>
   );

@@ -1,21 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700&family=Inter:wght@300;400;500&family=Dancing+Script:wght@700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700&family=Poppins:wght@300;400;600&display=swap');
-
 @layer base {
   body {
-    font-family: 'Poppins', sans-serif;
-    @apply bg-gray-50 text-gray-800;
-  }
-  .font-serif {
-    font-family: 'Playfair Display', serif;
-  }
-  html {
-    scroll-behavior: smooth;
+    @apply font-sans bg-rose-50/50 text-gray-800;
   }
 }
+
+
 
 @layer utilities {
   /* Animação para elementos surgindo */
@@ -72,4 +67,8 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #ec4899; /* pink-500 */
+}
+
+html {
+  scroll-behavior: smooth;
 }

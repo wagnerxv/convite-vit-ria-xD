@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useRef } from 'react';
 import { Heart, Sparkles, Send } from 'lucide-react';
 

@@ -14,8 +14,8 @@ const InstagramSection: React.FC = () => {
     // Caminhos corrigidos: removido o "/public"
     { src: '/images/fotodela1.PNG', alt: 'Ela sorrindo', comment: "A beleza que herda a força e a realeza de gerações. Cada traço seu conta uma história de poder. Linda demais!", likes: 123 },
     { src: '/images/fotodela2.PNG', alt: 'Foto em close', comment: "Essa pele é poesia. O tom que o sol beija e a noite admira. ✨", likes: 234 },
-    { src: '/images/fotodela3.PNG', alt: 'Look do dia', comment: "Como pode um ser humano ser tão perfeitamente esculpido? A beleza preta em sua forma mais pura.", likes: 345 },
-    { src: '/images/fotodela4.PNG', alt: 'Momento descontraído', comment: "Não sei o que brilha mais, o sol ou o seu sorriso. Acho que já sei a resposta.", likes: 456 },
+    { src: '/images/fotodela4.PNG', alt: 'Look do dia', comment: "Como pode um ser humano ser tão perfeitamente esculpido? A beleza preta em sua forma mais pura.", likes: 345 },
+    { src: '/images/fotodela3.PNG', alt: 'Momento descontraído', comment: "Não sei o que brilha mais, o sol ou o seu sorriso. Acho que já sei a resposta.", likes: 456 },
     { src: '/images/fotodela5.PNG', alt: 'Selfie', comment: "Tem gente que é bonita. E tem você, que redefine o conceito. A melanina mais linda que já vi.", likes: 567 },
   ];
 
@@ -60,8 +60,8 @@ const InstagramSection: React.FC = () => {
             <div className="md:w-1/2 p-6 flex flex-col">
               <div className="flex items-center mb-4">
                 {/* Caminho corrigido para a sua foto */}
-                <img src="/images/minha-foto.jpg" alt="Minha foto" className="w-10 h-10 rounded-full mr-3" />
-                <span className="font-semibold">seu_nome_de_usuario</span>
+                <img src="/images/minha-foto.PNG" alt="Minha foto" className="w-10 h-10 rounded-full mr-3" />
+                <span className="font-semibold">wagner.nsci</span>
               </div>
               <p className="text-gray-700 flex-grow">{selectedPost.comment}</p>
               <div className="flex items-center text-gray-500 mt-4">

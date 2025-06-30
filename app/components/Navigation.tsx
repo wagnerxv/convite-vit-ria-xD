@@ -29,7 +29,7 @@ const Navigation: React.FC = () => {
       <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <a href="#inicio" className="text-2xl font-serif font-bold text-rose-600">Um Encontro</a>
+            <a href="#inicio" className="text-2xl font-serif font-bold text-rose-600">Um Pedido</a>
             
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center space-x-2">

@@ -15,12 +15,12 @@ export default function Home() {
   const [showThankYou, setShowThankYou] = useState(false);
 
   const photos = [
-    // Caminhos corrigidos para apontar para a pasta public
-    { src: '/images/fotodela1.PNG', alt: 'Foto dela 1', id: 1 },
-    { src: '/images/fotodela2.PNG', alt: 'Foto dela 2', id: 2 },
-    { src: '/images/fotodela3.PNG', alt: 'Foto dela 3', id: 3 },
-    { src: '/images/fotodela4.PNG', alt: 'Foto dela 4', id: 4 },
-    { src: '/images/fotodela5.PNG', alt: 'Foto dela 5', id: 5 },
+    { src: '/images/fotodela6.PNG', alt: 'Foto dela 6', id: 6 },
+    { src: '/images/fotodela7.PNG', alt: 'Foto dela 7', id: 7 },
+    { src: '/images/fotodela8.PNG', alt: 'Foto dela 8', id: 8 },
+    { src: '/images/fotodela9.PNG', alt: 'Foto dela 9', id: 9 },
+    { src: '/images/fotodela10.PNG', alt: 'Foto dela 10', id: 10 },
+    { src: '/images/fotodela11.PNG', alt: 'Foto dela 11', id: 11 },
   ];
   
 

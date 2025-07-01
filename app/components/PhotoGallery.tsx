@@ -35,7 +35,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos, title }) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1000,
     nextArrow: <Arrow><ChevronRight size={28} /></Arrow>,
     prevArrow: <Arrow><ChevronLeft size={28} /></Arrow>,
     responsive: [

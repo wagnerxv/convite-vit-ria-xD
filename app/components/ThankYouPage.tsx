@@ -1,21 +1,53 @@
 'use client';
-import React, { useState, useEffect } from 'react';
-import { Heart, Star, Calendar, Clock } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Heart, Calendar, Clock, Play, Pause } from 'lucide-react';
 
 const ThankYouPage: React.FC = () => {
   const [showContent, setShowContent] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowContent(true), 500);
     return () => clearTimeout(timer);
   }, []);
 
+  const togglePlayPause = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (audio.paused) {
+      // Se a música estiver no início, pula para o tempo desejado
+      if (audio.currentTime === 0) {
+        // <<<---------------------------------------------------------->>>
+        // <<< Defina o tempo de início da música AQUI (em segundos) >>>
+        const startTimeInSeconds = 30; // Exemplo: começar aos 30 segundos
+        // <<<---------------------------------------------------------->>>
+        audio.currentTime = startTimeInSeconds;
+      }
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-amber-50 flex items-center justify-center p-4">
-       <audio autoPlay loop>
-        <source src="/music/agradecimento.mp3" type="audio/mpeg" />
+       <audio ref={audioRef} loop src="/music/agradecimento.mp3" onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)}>
         Seu navegador não suporta o elemento de áudio.
       </audio>
+
+      {/* Botão de Play/Pause */}
+      <div className="fixed top-5 right-5 z-20">
+        <button 
+          onClick={togglePlayPause} 
+          className="bg-white/80 backdrop-blur-sm text-rose-500 rounded-full p-3 shadow-lg hover:scale-110 transition-transform"
+          aria-label={isPlaying ? 'Pausar música' : 'Tocar música'}
+        >
+          {isPlaying ? <Pause size={24} className="fill-current" /> : <Play size={24} className="fill-current" />}
+        </button>
+      </div>
+
       <div className={`relative z-10 transition-all duration-1000 max-w-2xl text-center ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-rose-400 to-pink-400 rounded-full mb-8 animate-bounce">
           <Heart className="w-10 h-10 text-white fill-current" />

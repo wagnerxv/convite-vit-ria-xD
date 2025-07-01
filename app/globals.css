@@ -74,3 +74,81 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Estilos seguros para o Carrossel */
+.photo-gallery-slider .slick-arrow:before {
+  content: none; /* Remove a seta padrão do slick */
+}
+
+.photo-gallery-slider .slick-arrow {
+    transition: all 0.2s ease-in-out;
+}
+
+.photo-gallery-slider .slick-arrow:hover {
+    transform: scale(1.1);
+    background-color: white !important;
+}
+
+.photo-gallery-slider .slick-prev {
+  left: -15px;
+}
+
+.photo-gallery-slider .slick-next {
+  right: -15px;
+}
+
+.photo-gallery-slider .slick-disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.photo-gallery-slider .slick-dots {
+  bottom: -35px;
+}
+
+.photo-gallery-slider .slick-dots li button:before {
+  font-size: 10px;
+  color: #f472b6;
+  opacity: 0.5;
+}
+
+.photo-gallery-slider .slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: #ec4899;
+}
+
+/* Garante que o layout do slick não quebre em flexbox */
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  display: flex;
+  align-items: stretch;
+}
+
+.slick-slide {
+  height: inherit !important; /* Força os slides a terem a mesma altura */
+}
+
+.slick-slide > div {
+    height: 100%;
+}
+
+/* Estilos para a Seção Spotify */
+
+.spotify-progress-bar {
+  transition: all 0.1s linear;
+}
+
+/* Estiliza a barra de rolagem da playlist */
+.spotify-playlist::-webkit-scrollbar {
+  width: 6px;
+}
+.spotify-playlist::-webkit-scrollbar-track {
+  background: #374151; /* gray-700 */
+}
+.spotify-playlist::-webkit-scrollbar-thumb {
+  background: #10b981; /* green-500 */
+  border-radius: 3px;
+}
+.spotify-playlist::-webkit-scrollbar-thumb:hover {
+  background: #059669; /* green-600 */
+}

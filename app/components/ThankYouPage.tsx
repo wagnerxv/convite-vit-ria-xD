@@ -12,6 +12,10 @@ const ThankYouPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-amber-50 flex items-center justify-center p-4">
+       <audio autoPlay loop>
+        <source src="/music/agradecimento.mp3" type="audio/mpeg" />
+        Seu navegador não suporta o elemento de áudio.
+      </audio>
       <div className={`relative z-10 transition-all duration-1000 max-w-2xl text-center ${showContent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-rose-400 to-pink-400 rounded-full mb-8 animate-bounce">
           <Heart className="w-10 h-10 text-white fill-current" />

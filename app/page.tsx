@@ -6,6 +6,7 @@ import InvitationSection from '@/app/components/InvitationSection';
 import ThankYouPage from '@/app/components/ThankYouPage';
 import PhotoGallery from '@/app/components/PhotoGallery';
 import InstagramSection from '@/app/components/InstagramSection';
+import SpotifySection from '@/app/components/SpotifySection';
 import Navigation from '@/app/components/Navigation';
 import FloatingParticles from '@/app/components/FloatingParticles';
 
@@ -39,6 +40,7 @@ export default function Home() {
       <HeroSection />
       <PhotoGallery photos={photos} title="Uma galeria de sorrisos" />
       <InstagramSection />
+      <SpotifySection />
       <InvitationSection onAccept={handleAccept} />
     </>
   );

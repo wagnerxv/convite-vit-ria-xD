@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Heart, MessageCircle, X } from 'lucide-react';
 
 interface Post {
@@ -7,19 +7,30 @@ interface Post {
   alt: string;
   comment: string;
   likes: number;
+  musicSrc: string;
 }
 
 const InstagramSection: React.FC = () => {
   const posts: Post[] = [
-    // Caminhos corrigidos: removido o "/public"
-    { src: '/images/fotodela1.PNG', alt: 'Ela sorrindo', comment: "A beleza que herda a força e a realeza de gerações. Cada traço seu conta uma história de poder. Linda demais!", likes: 123 },
-    { src: '/images/fotodela2.PNG', alt: 'Foto em close', comment: "Essa pele é poesia. O tom que o sol beija e a noite admira. ✨", likes: 234 },
-    { src: '/images/fotodela4.PNG', alt: 'Look do dia', comment: "Como pode um ser humano ser tão perfeitamente esculpido? A beleza preta em sua forma mais pura.", likes: 345 },
-    { src: '/images/fotodela3.PNG', alt: 'Momento descontraído', comment: "Não sei o que brilha mais, o sol ou o seu sorriso. Acho que já sei a resposta.", likes: 456 },
-    { src: '/images/fotodela5.PNG', alt: 'Selfie', comment: "Tem gente que é bonita. E tem você, que redefine o conceito. A melanina mais linda que já vi.", likes: 567 },
+    { src: '/images/fotodela1.PNG', alt: 'Ela sorrindo', comment: "A beleza que herda a força e a realeza de gerações. Cada traço seu conta uma história de poder. Linda demais!", likes: 123, musicSrc: '/music/musica1.mp3' },
+    { src: '/images/fotodela2.PNG', alt: 'Foto em close', comment: "Essa pele é poesia. O tom que o sol beija e a noite admira. ✨", likes: 234, musicSrc: '/music/musica2.mp3' },
+    { src: '/images/fotodela4.PNG', alt: 'Look do dia', comment: "Como pode um ser humano ser tão perfeitamente esculpido? A beleza preta em sua forma mais pura.", likes: 345, musicSrc: '/music/musica3.mp3' },
+    { src: '/images/fotodela3.PNG', alt: 'Momento descontraído', comment: "Não sei o que brilha mais, o sol ou o seu sorriso. Acho que já sei a resposta.", likes: 456, musicSrc: '/music/musica4.mp3' },
+    { src: '/images/fotodela5.PNG', alt: 'Selfie', comment: "Tem gente que é bonita. E tem você, que redefine o conceito. A melanina mais linda que já vi.", likes: 567, musicSrc: '/music/musica5.mp3' },
   ];
 
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    if (selectedPost && audioRef.current) {
+      audioRef.current.src = selectedPost.musicSrc;
+      audioRef.current.play();
+    } else if (audioRef.current) {
+      audioRef.current.pause();
+    }
+  }, [selectedPost]);
+
 
   return (
     <section id="instaglam" className="py-20 px-4 bg-rose-50">
@@ -53,13 +64,16 @@ const InstagramSection: React.FC = () => {
       {/* Modal */}
       {selectedPost && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" onClick={() => setSelectedPost(null)}>
+           <audio ref={audioRef} loop>
+            <source src={selectedPost.musicSrc} type="audio/mpeg" />
+            Seu navegador não suporta o elemento de áudio.
+          </audio>
           <div className="bg-white rounded-lg max-w-3xl w-full flex flex-col md:flex-row animate-fade-in-up" onClick={(e) => e.stopPropagation()}>
             <div className="md:w-1/2">
               <img src={selectedPost.src} alt={selectedPost.alt} className="w-full h-full object-cover rounded-l-lg" />
             </div>
             <div className="md:w-1/2 p-6 flex flex-col">
               <div className="flex items-center mb-4">
-                {/* Caminho corrigido para a sua foto */}
                 <img src="/images/minha-foto.PNG" alt="Minha foto" className="w-10 h-10 rounded-full mr-3" />
                 <span className="font-semibold">wagner.nsci</span>
               </div>

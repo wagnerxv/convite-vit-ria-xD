@@ -1,6 +1,7 @@
-// tailwind.config.js
+import tailwindcssAspectRatio from '@tailwindcss/aspect-ratio';
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const config = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
@@ -14,6 +15,8 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/aspect-ratio'), // Adicione esta linha
+    tailwindcssAspectRatio,
   ],
 };
+
+export default config;
